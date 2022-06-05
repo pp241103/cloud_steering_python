@@ -1,22 +1,33 @@
 #!/usr/bin/env python3
 
-# List of uniq methods of <class 'int'> <class 'str'> <class 'bool'>
-uniq = list(set(dir(int) + dir(str) + dir(bool)))
-uniq.sort()
+import sys
 
-print("Methods,int,str,bool")
+# Get list of types and return a list of its all unique methods
+def uniq(in_list):
+  uniq = []
+  for i in in_list:
+    uniq += dir(eval(i))
+  uniq = list(set(uniq))
+  uniq.sort()
+  return uniq
 
-for i in uniq:
-  print(i, end = ",")
-  if i in dir(int):
-    print("yes,", end = "")
-  else:
-    print("no,", end = "")
-  if i in dir(str):
-    print("yes,", end = "")
-  else:
-    print("no,", end = "")
-  if i in dir(bool):
-    print("yes")
-  else:
-    print("no")
+# Gets list of methods and types. Forms csv-sytax output of presence 
+# or absence the method in type.
+def table(methods, types):
+  # output = "Methods \\ Types"
+  output = "Methods"
+  for i in types:
+    output += ",{}".format(i)
+  for i in methods:
+    output += "\n{}".format(i)
+    for j in types:
+      if i in dir(eval(j)):
+        output += ",yes"
+      else:
+        output += ",no"
+
+  return output
+
+types = sys.argv[1:]
+methods = uniq(types)
+print(table(methods,types))

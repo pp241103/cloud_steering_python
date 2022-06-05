@@ -1,0 +1,2 @@
+1. Made table of common-different methods in int, str, bool classes.
+2. 
