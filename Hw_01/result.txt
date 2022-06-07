@@ -1,4 +1,4 @@
-1. bool(different objects) The table is below the EXPERIMENT section.
+1. bool(different objects) The table is after the EXPERIMENT section.
    Experiment:
    >>> a = 0
    >>> b = 1
