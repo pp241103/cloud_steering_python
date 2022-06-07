@@ -14,8 +14,7 @@ def uniq(in_list):
 # Gets list of methods and types. Forms csv-sytax output of presence 
 # or absence the method in type.
 def table(methods, types):
-  # output = "Methods \\ Types"
-  output = "Methods"
+  output = "Methods \\ Types"
   for i in types:
     output += ",{}".format(i)
   for i in methods:

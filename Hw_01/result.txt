@@ -1,2 +1,81 @@
-1. Made table of common-different methods in int, str, bool classes.
-2. 
+1. bool(different objects) The table is below the EXPERIMENT section.
+   Experiment:
+   >>> a = 0
+   >>> b = 1
+   >>> c = 22
+   >>> bool(a)
+   False
+   >>> bool(b)
+   True
+   >>> bool(c)
+   True
+
+   >>> a = "0"
+   >>> b = "1"
+   >>> c = "22"
+   >>> d = "-1000"
+   >>> bool(a)
+   True
+   >>> bool(b)
+   True
+   >>> bool(c)
+   True
+   >>> bool(d)
+   True
+   >>> a = "True"
+   >>> b = "False"
+   >>> bool(a)
+   True
+   >>> bool(b)
+   True
+
+   >>> if "False":
+   ...   print("the 'False' is True")
+   ... else:
+   ...   print("the 'Fasle' is False")
+   ... 
+   the 'False' is True
+
+   Table:
+   The final Table (csv format) you can find it here (./int_str_bool_correspondence.csv):
+
+   int(0),int(1),int(22),str(0),str("0"),str("1"),str("22"),str("-1000"),str("True"),str("False")
+   False,True,True,True,True,True,True,True,True,True
+
+   Additional: Made table of common-different methods in int, str, bool classes.
+
+2. Разобраться с различиями между input() и raw_input(). Также в контексте разных версий python: 2 и 3.
+  Pyton help():
+    Python2:
+      >>> help(input)
+      input(...)
+          input([prompt]) -> value
+          
+          Equivalent to eval(raw_input(prompt)).
+  
+      >>> help(raw_input)
+      raw_input(...)
+              raw_input([prompt]) -> string
+              
+              Read a string from standard input.  The trailing newline is stripped.
+              If the user hits EOF (Unix: Ctl-D, Windows: Ctl-Z+Return), raise EOFError.
+              On Unix, GNU readline is used if enabled.  The prompt string, if given,
+              is printed without a trailing newline before reading.
+  
+    Python3:
+      >>> help(input)
+      input(prompt=None, /)
+          Read a string from standard input.  The trailing newline is stripped.
+          
+          The prompt string, if given, is printed to standard output without a
+          trailing newline before reading input.
+          
+          If the user hits EOF (*nix: Ctrl-D, Windows: Ctrl-Z+Return), raise EOFError.
+          On *nix systems, readline is used if available.
+  
+      >>> help(raw_input)
+      Traceback (most recent call last):
+        File "<stdin>", line 1, in <module>
+      NameError: name 'raw_input' is not defined
+
+3. Find PEP... I think I found https://peps.python.org/pep-3105/

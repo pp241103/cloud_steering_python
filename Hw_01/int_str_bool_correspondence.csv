@@ -1,0 +1,2 @@
+int(0),int(1),int(22),str(0),str("0"),str("1"),str("22"),str("-1000"),str("True"),str("False")
+False,True,True,True,True,True,True,True,True,True
