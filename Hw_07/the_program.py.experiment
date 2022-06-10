@@ -1,0 +1,91 @@
+#!/usr/bin/env python3
+
+# 1st try
+
+def first_try():
+  s = ""
+  l = []
+  sh = []
+  sh_u = []
+
+  with open("/etc/passwd") as fin:
+    s = fin.read()
+
+  l = s.strip().split("\n")
+
+  for i in l:
+    sh.append(i.split(":")[-1])
+
+  sh_u = list(set(sh))
+  sh_u.sort()
+
+  for i in sh_u:
+    print(i, "-", s.count(i), end = " ; ")
+
+# 2nd try
+
+import pprint
+
+def second_try():
+  
+  def get_uids(passwd):
+    '''
+    "uid": {
+      "name": "",
+      "group": "",
+      "shell": ""
+    }
+    '''
+    uids = dict()
+    l = passwd.strip().split("\n")
+    for i in l:
+      uids[i.split(":")[2]] = {"name": i.split(":")[0],\
+                               "group": i.split(":")[3],\
+                               "shell": i.split(":")[6],}
+    return uids
+  
+  def get_gids(groups):
+    '''
+    "gid": {
+      "name": "",
+      "users": []
+    }
+    '''
+    gids = dict()
+    l = groups.strip().split("\n")
+    for i in l:
+      gids[i.split(":")[2]] = {"name": i.split(":")[0],\
+                               "users": i.split(":")[3].split(",")}
+    return gids
+  
+  passwd = ""
+  groups = ""
+  
+  with open("/etc/passwd") as fin:
+    passwd = fin.read()
+  with open("/etc/group") as fin:
+    groups = fin.read()
+  
+  uids = get_uids(passwd)
+  gids = get_gids(groups)
+
+  def get_sh(uids):
+    '''
+    надо здесь завести словарь для хранения shell и количества 
+    вхождений
+
+    алгос надо будет переделать (возможно частично)
+    с условием если ключ-shell прибоавлять к значению-колич. вх. +1
+    '''
+    l = []
+    for i in uids.values():
+      # pprint.pprint(i)
+      l.append(i["shell"])
+    return set(l)
+
+  sh = get_sh(uids)
+  return sh
+
+
+pprint.pprint(second_try())
+# second_try()
