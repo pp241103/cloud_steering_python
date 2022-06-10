@@ -90,15 +90,11 @@ def second_try():
     алгос надо будет переделать (возможно частично)
     с условием если ключ-shell прибоавлять к значению-колич. вх. +1
     '''
-    shells = {}
+    l = []
     for i in uids.values():
       # pprint.pprint(i)
-      pprint.pprint(i["shell"])
-      if shells.get(i["shell"], default = False):
-        shells[i["shell"]] += 1
-      else:
-        shells[i["shell"]] = 1
-    return shells
+      l.append(i["shell"])
+    return set(l)
 
   sh = get_sh(uids)
   return sh
