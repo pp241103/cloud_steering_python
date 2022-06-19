@@ -127,6 +127,7 @@ def try_3_2():
 
 # -------------------End of Problem 48 Self powers--------------------
 # -----------------Problem 40 Champernowne's constant-----------------
+import math
 
 def try_4_1(n):
   s, i = "", 0
@@ -135,9 +136,5 @@ def try_4_1(n):
     i += 1
   return s
 
-s_4_1 = try_4_1(1_000_000)
-print(s_4_1[12])
-# MY FINAL ANSWER WAS: 210
-
-print([10 ** i for i in range(7)])
+print(math.prod([int(try_4_1(1_000_000)[10 ** i]) for i in range(7)]))
 # -------------End of Problem 40 Champernowne's constant--------------

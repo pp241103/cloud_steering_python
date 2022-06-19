@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+import math
+
 # -------------------Problem 9 Pythagorean triplet--------------------
 print("9:", [(i, j, 1000 - i - j) for i in range(1,1000) for j in range(1,1000) if (1000 - i - j)**2 -i**2 -j**2 == 0])
 
@@ -16,4 +18,6 @@ def try_4_1(n):
     s += str(i)
     i += 1
   return s
-# TO BE CONTINUED
+
+print("40:", \
+      math.prod([int(try_4_1(1_000_000)[10 ** i]) for i in range(7)]))
