@@ -1,0 +1,18 @@
+It's binary, so it's non human-readable.
+Use it when you want to save custom objects.
+
+HOW TO LOAD:
+------------
+
+>>> with open("test.bin", "rb") as inf:
+...   mary = pickle.load(inf)
+...
+
+
+HOW TO DUMP:
+------------
+
+>>> with open("dump_test.bin", "wb") as ouf:
+...   pickle.dump(meggi, ouf)
+... 
+
