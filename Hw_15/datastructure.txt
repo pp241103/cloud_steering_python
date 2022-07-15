@@ -1,0 +1,9 @@
+Routs:
+------
+{
+  next_hop_ip_address: network
+}
+
+IP interfaces:
+-------------
+Here are each created interface on a single router

@@ -1,0 +1,23 @@
+p_address("192.168.5.1"): ip_network("172.16.0.0/16") }
+>>> 
+>>> ifs
+[IPv4Interface('192.168.5.14/24')]
+>>> 
+>>> 
+>>> for i in ifs:
+...   if ip_address("192.168.5.1") in i.network:
+...     print("We know this network")
+... 
+We know this network
+>>> 
+>>> rt1
+{IPv4Address('192.168.5.1'): IPv4Network('172.16.0.0/16')}
+>>> for i in ifs:
+...   if ip_address("192.168.8.1") in i.network:
+...     print("We know this network")
+...   else:
+...     print("We don't know this network")
+... 
+We don't know this network
+>>> 
+
